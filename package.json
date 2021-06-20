@@ -1,0 +1,56 @@
+{
+  "name": "podmie-prototype",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.18.2",
+    "npm": "6.14.5"
+  },
+  "description": "a podcast app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jasmine",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build ./server -s",
+    "build": "npm run clean && npm run build-css && npm run build-server",
+    "start": "node ./build/app.js",
+    "debug": "node --debug ./build/app.js",
+    "start-dev": "node ./server/app.js --exec babel-node - js",
+    "server": "nodemon ./server/app.js --exec babel-node - js"
+  },
+  "author": "DevCity",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "ejs": "^3.1.5",
+    "jasmine": "^3.6.3",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.6",
+    "request": "^2.88.2"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.4",
+    "mongoose-data-seed": "^2.1.6",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^3.0.3"
+  },
+  "mdSeed": {
+    "seedersFolder": "./server/seeders"
+  }
+}
